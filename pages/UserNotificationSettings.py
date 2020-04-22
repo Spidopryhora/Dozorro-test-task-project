@@ -22,8 +22,8 @@ class UserNotificationSettingsLocators:
 
 class UserNotificationSettings(GenericPage):
     def should_be_notification_settings_page(self):
-        _bi.run_keyword('Location Should Contain', UserNotificationSettingsLocators.USER_NOTIFICATION_SETTINGS_PART_URL)
         _bi.run_keyword('Wait Until Page Contains Element', UserNotificationSettingsLocators.SETTINGS_FORM)
+        _bi.run_keyword('Location Should Contain', UserNotificationSettingsLocators.USER_NOTIFICATION_SETTINGS_PART_URL)
 
     def user_activate_email_subscription(self):
         self.wait_and_click(UserNotificationSettingsLocators.EMAIL_ACTIVATE_BUTTON)
