@@ -15,6 +15,7 @@ clean up subscriptions
     user delete activation email
 
 report activity
+    close browser
     sleep  3
     run keyword if test passed  send successful test run report
     run keyword if test failed  send failed test run report
@@ -34,6 +35,7 @@ User activates email subscription and approve it by activation link
     should be notification settings page
     user pause subscription
     clean up subscriptions
+
 
 
 

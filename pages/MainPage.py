@@ -27,7 +27,7 @@ class MainPage(GenericPage):
 
     def open_main_page(self):
         self.open_page('/')
-        _bi.run_keyword('Wait Until Element Is Visible', MainPageLocators.LOGIN_LINK, 'timeout=3')
+        _bi.run_keyword('Wait Until Element Is Visible', MainPageLocators.HEADER_LOGO, 'timeout=3')
 
     def guest_close_popup(self):
         self.wait_and_click(MainPageLocators.CLOSE_POPUP_LINK)
@@ -44,7 +44,7 @@ class MainPage(GenericPage):
         _bi.sleep(2)
         self.wait_and_type(GoogleAuthLocators.GOOGLE_PASS_INPUT, Config.password)
         self.wait_and_click(GoogleAuthLocators.GOOGLE_PASS_NEXT_BUTTON)
-        _bi.run_keyword('Wait Until Element Is Visible', MainPageLocators.LOGIN_LINK, 'timeout=3')
+        _bi.run_keyword('Wait Until Element Is Visible', MainPageLocators.USER_MENU_DROPDOWN, 'timeout=3')
 
     def user_go_to_account_settings(self):
         self.wait_and_click(MainPageLocators.USER_MENU_DROPDOWN)
