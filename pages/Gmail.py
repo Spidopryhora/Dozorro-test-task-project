@@ -1,13 +1,20 @@
 import pickle
 import os.path
+from email.mime.multipart import MIMEMultipart
+
 from googleapiclient.discovery import build
 from google_auth_oauthlib.flow import InstalledAppFlow
 from google.auth.transport.requests import Request
 import base64
+import mimetypes
+from email.mime.text import MIMEText
+from email.mime.audio import MIMEAudio
+from email.mime.image import MIMEImage
+from email.mime.base import MIMEBase
 from apiclient import errors
 
 # If modifying these scopes, delete the file token.pickle.
-SCOPES = ['https://www.googleapis.com/auth/gmail.readonly']
+SCOPES = ['https://mail.google.com/']
 
 
 def gmail_auth():
@@ -56,7 +63,97 @@ def get_message_body(service, message_id):
 def delete_mail(service, message_id):
     try:
         service.users().messages().delete(userId='me', id=message_id).execute()
-        print
-        'Message with id: %s deleted successfully.' % msg_id
-    except errors.HttpError:
-        print(f'An error occurred: {errors.HttpError}')
+        print(f'Message with id: {message_id} deleted successfully.')
+    except errors.HttpError as error:
+        print(f'An error occurred: {error}')
+
+
+def create_message(sender='bizserptest@gmail.com', to='bizserp@gmail.com', subject=None,
+                   message_text='Test'):
+    message = MIMEText(message_text)
+    message['to'] = to
+    message['from'] = sender
+    message['subject'] = subject
+    return {'raw': base64.urlsafe_b64encode(message.as_bytes()).decode()}
+
+
+def create_message_with_attachment(sender, to, subject, message_text, file):
+    """Create a message for an email.
+
+    Args:
+    sender: Email address of the sender.
+    to: Email address of the receiver.
+    subject: The subject of the email message.
+    message_text: The text of the email message.
+    file: The path to the file to be attached.
+
+    Returns:
+    An object containing a base64url encoded email object.
+    """
+    message = MIMEMultipart()
+    message['to'] = to
+    message['from'] = sender
+    message['subject'] = subject
+
+    msg = MIMEText(message_text)
+    message.attach(msg)
+
+    content_type, encoding = mimetypes.guess_type(file)
+
+    if content_type is None or encoding is not None:
+        content_type = 'application/octet-stream'
+    main_type, sub_type = content_type.split('/', 1)
+
+    if main_type == 'text':
+        fp = open(file, 'rb')
+        msg = MIMEText(fp.read(), _subtype=sub_type)
+        fp.close()
+
+    elif main_type == 'image':
+        fp = open(file, 'rb')
+        msg = MIMEImage(fp.read(), _subtype=sub_type)
+        fp.close()
+
+    elif main_type == 'audio':
+        fp = open(file, 'rb')
+        msg = MIMEAudio(fp.read(), _subtype=sub_type)
+        fp.close()
+
+    else:
+        fp = open(file, 'rb')
+        msg = MIMEBase(main_type, sub_type)
+        msg.set_payload(fp.read())
+        fp.close()
+    filename = os.path.basename(file)
+    msg.add_header('Content-Disposition', 'attachment', filename=filename)
+    message.attach(msg)
+
+    return {'raw': base64.urlsafe_b64encode(message.as_bytes()).decode()}
+
+
+def send_message(service, user_id, message):
+    """Send an email message.
+
+    Args:
+    service: Authorized Gmail API service instance.
+    user_id: User's email address. The special value "me"
+    can be used to indicate the authenticated user.
+    message: Message to be sent.
+
+    Returns:
+    Sent Message.
+    """
+    try:
+        message = (service.users().messages().send(userId=user_id, body=message)
+                   .execute())
+        print(f"Message Id: {message['id']}")
+        return message
+    except errors.HttpError as error:
+        print(f'An error occurred: {error}')
+
+
+if __name__ == '__main__':
+    service = gmail_auth()
+    email_msg = create_message_with_attachment('bzserptest@gmail.com', 'bzserptest@gmail.com', 'Test',
+                                               'Hi, this is test results', '../report.html')
+    send_message(service, user_id='me', message=email_msg)

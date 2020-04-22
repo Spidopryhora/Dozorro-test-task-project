@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.1.2 (Python 3.7.7 on darwin)" generated="20200421 21:35:48.246" rpa="false">
+<suite id="s1" name="Test Activation Subscription" source="/Users/serpius/PycharmProjects/Dozorro/test_activation_subscription.robot">
+<test id="s1-t1" name="User activates email subscription and approve it by activation link">
+<kw name="Open Main Page" library="MainPage">
+<kw name="Open Browser" library="Selenium2Library">
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<arguments>
+<arg>https://dev.dozorro.work/</arg>
+<arg>browser=chrome</arg>
+</arguments>
+<msg timestamp="20200421 21:35:49.265" level="INFO">Opening browser 'chrome' to base url 'https://dev.dozorro.work/'.</msg>
+<status status="PASS" starttime="20200421 21:35:49.265" endtime="20200421 21:35:55.827"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>css = div.login_link a</arg>
+<arg>timeout=3</arg>
+</arguments>
+<status status="PASS" starttime="20200421 21:35:55.827" endtime="20200421 21:35:55.894"></status>
+</kw>
+<status status="PASS" starttime="20200421 21:35:49.265" endtime="20200421 21:35:55.894"></status>
+</kw>
+<kw name="Guest Close Popup" library="MainPage">
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<arguments>
+<arg>css = div#review_form3_wrapper a.delete</arg>
+</arguments>
+<status status="PASS" starttime="20200421 21:35:55.896" endtime="20200421 21:35:55.922"></status>
+</kw>
+<kw name="Set Focus To Element" library="Selenium2Library">
+<doc>Sets the focus to the element identified by ``locator``.</doc>
+<arguments>
+<arg>css = div#review_form3_wrapper a.delete</arg>
+</arguments>
+<status status="PASS" starttime="20200421 21:35:55.922" endtime="20200421 21:35:55.958"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>css = div#review_form3_wrapper a.delete</arg>
+</arguments>
+<msg timestamp="20200421 21:35:55.959" level="INFO">Clicking element 'css = div#review_form3_wrapper a.delete'.</msg>
+<status status="PASS" starttime="20200421 21:35:55.958" endtime="20200421 21:35:56.076"></status>
+</kw>
+<status status="PASS" starttime="20200421 21:35:55.895" endtime="20200421 21:35:56.076"></status>
+</kw>
+<kw name="Guest Go To Login Link" library="MainPage">
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<arguments>
+<arg>css = div.login_link a</arg>
+</arguments>
+<status status="PASS" starttime="20200421 21:35:56.078" endtime="20200421 21:35:56.097"></status>
+</kw>
+<kw name="Set Focus To Element" library="Selenium2Library">
+<doc>Sets the focus to the element identified by ``locator``.</doc>
+<arguments>
+<arg>css = div.login_link a</arg>
+</arguments>
+<status status="PASS" starttime="20200421 21:35:56.097" endtime="20200421 21:35:56.120"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>css = div.login_link a</arg>
+</arguments>
+<msg timestamp="20200421 21:35:56.121" level="INFO">Clicking element 'css = div.login_link a'.</msg>
+<status status="PASS" starttime="20200421 21:35:56.120" endtime="20200421 21:35:56.491"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>css = .btn-google</arg>
+</arguments>
+<status status="PASS" starttime="20200421 21:35:56.492" endtime="20200421 21:35:56.549"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>css = .btn-facebook</arg>
+</arguments>
+<status status="PASS" starttime="20200421 21:35:56.549" endtime="20200421 21:35:56.620"></status>
+</kw>
+<status status="PASS" starttime="20200421 21:35:56.077" endtime="20200421 21:35:56.620"></status>
+</kw>
+<kw name="Guest Log In By Google" library="MainPage">
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<arguments>
+<arg>css = .btn-google</arg>
+</arguments>
+<status status="PASS" starttime="20200421 21:35:56.621" endtime="20200421 21:35:56.636"></status>
+</kw>
+<kw name="Set Focus To Element" library="Selenium2Library">
+<doc>Sets the focus to the element identified by ``locator``.</doc>
+<arguments>
+<arg>css = .btn-google</arg>
+</arguments>
+<status status="PASS" starttime="20200421 21:35:56.636" endtime="20200421 21:35:56.732"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>css = .btn-google</arg>
+</arguments>
+<msg timestamp="20200421 21:35:56.733" level="INFO">Clicking element 'css = .btn-google'.</msg>
+<status status="PASS" starttime="20200421 21:35:56.733" endtime="20200421 21:35:58.762"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<arguments>
+<arg>css = input[type="email"]</arg>
+</arguments>
+<status status="PASS" starttime="20200421 21:35:58.762" endtime="20200421 21:35:58.797"></status>
+</kw>
+<kw name="Set Focus To Element" library="Selenium2Library">
+<doc>Sets the focus to the element identified by ``locator``.</doc>
+<arguments>
+<arg>css = input[type="email"]</arg>
+</arguments>
+<status status="PASS" starttime="20200421 21:35:58.797" endtime="20200421 21:35:58.820"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>css = input[type="email"]</arg>
+<arg>bzserptest@gmail.com</arg>
+</arguments>
+<msg timestamp="20200421 21:35:58.821" level="INFO">Typing text 'bzserptest@gmail.com' into text field 'css = input[type="email"]'.</msg>
+<status status="PASS" starttime="20200421 21:35:58.820" endtime="20200421 21:35:59.391"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<arguments>
+<arg>css = div#identifierNext</arg>
+</arguments>
+<status status="PASS" starttime="20200421 21:35:59.392" endtime="20200421 21:35:59.410"></status>
+</kw>
+<kw name="Set Focus To Element" library="Selenium2Library">
+<doc>Sets the focus to the element identified by ``locator``.</doc>
+<arguments>
+<arg>css = div#identifierNext</arg>
+</arguments>
+<status status="PASS" starttime="20200421 21:35:59.410" endtime="20200421 21:35:59.436"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>css = div#identifierNext</arg>
+</arguments>
+<msg timestamp="20200421 21:35:59.437" level="INFO">Clicking element 'css = div#identifierNext'.</msg>
+<status status="PASS" starttime="20200421 21:35:59.437" endtime="20200421 21:35:59.633"></status>
+</kw>
+<msg timestamp="20200421 21:36:01.635" level="INFO">Slept 2 seconds</msg>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<arguments>
+<arg>css = input[type="password"]</arg>
+</arguments>
+<status status="PASS" starttime="20200421 21:36:01.635" endtime="20200421 21:36:01.652"></status>
+</kw>
+<kw name="Set Focus To Element" library="Selenium2Library">
+<doc>Sets the focus to the element identified by ``locator``.</doc>
+<arguments>
+<arg>css = input[type="password"]</arg>
+</arguments>
+<status status="PASS" starttime="20200421 21:36:01.653" endtime="20200421 21:36:01.666"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>css = input[type="password"]</arg>
+<arg>123Qa123</arg>
+</arguments>
+<msg timestamp="20200421 21:36:01.666" level="INFO">Typing text '123Qa123' into text field 'css = input[type="password"]'.</msg>
+<status status="PASS" starttime="20200421 21:36:01.666" endtime="20200421 21:36:01.774"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<arguments>
+<arg>css = div#passwordNext</arg>
+</arguments>
+<status status="PASS" starttime="20200421 21:36:01.774" endtime="20200421 21:36:01.786"></status>
+</kw>
+<kw name="Set Focus To Element" library="Selenium2Library">
+<doc>Sets the focus to the element identified by ``locator``.</doc>
+<arguments>
+<arg>css = div#passwordNext</arg>
+</arguments>
+<status status="PASS" starttime="20200421 21:36:01.786" endtime="20200421 21:36:01.805"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>css = div#passwordNext</arg>
+</arguments>
+<msg timestamp="20200421 21:36:01.805" level="INFO">Clicking element 'css = div#passwordNext'.</msg>
+<status status="PASS" starttime="20200421 21:36:01.805" endtime="20200421 21:36:01.925"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>css = div.login_link a</arg>
+<arg>timeout=3</arg>
+</arguments>
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20200421 21:36:05.564" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20200421 21:36:05.125" endtime="20200421 21:36:05.564"></status>
+</kw>
+<msg timestamp="20200421 21:36:05.571" level="FAIL">Element 'css = div.login_link a' not visible after 3 seconds.</msg>
+<status status="FAIL" starttime="20200421 21:36:01.925" endtime="20200421 21:36:05.571"></status>
+</kw>
+<status status="FAIL" starttime="20200421 21:35:56.621" endtime="20200421 21:36:05.571"></status>
+</kw>
+<status status="FAIL" starttime="20200421 21:35:49.264" endtime="20200421 21:36:05.572" critical="yes">Element 'css = div.login_link a' not visible after 3 seconds.</status>
+</test>
+<doc>Test cases for testing activation of email subscription</doc>
+<status status="FAIL" starttime="20200421 21:35:48.248" endtime="20200421 21:36:05.574"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1">Critical Tests</stat>
+<stat pass="0" fail="1">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" id="s1" name="Test Activation Subscription">Test Activation Subscription</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

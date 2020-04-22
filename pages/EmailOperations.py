@@ -1,4 +1,5 @@
 from robot.libraries.BuiltIn import BuiltIn
+import time
 from pages.Gmail import *
 
 _bi = BuiltIn()
@@ -19,3 +20,7 @@ class EmailOperations:
 
     def user_delete_activation_email(self):
         delete_mail(self.service, self.dozorro_mail)
+
+    def send_successful_test_run_report(self):
+
+        pass
