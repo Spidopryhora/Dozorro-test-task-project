@@ -15,6 +15,7 @@ clean up subscriptions
     user delete activation email
 
 report activity
+    sleep  3
     run keyword if test passed  send successful test run report
     run keyword if test failed  send failed test run report
 

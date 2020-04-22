@@ -6,10 +6,6 @@ _bi = BuiltIn()
 
 
 class EmailOperations:
-    def __init__(self, ):
-        self.sender = 'bzserptest@gmail.com'
-        self.to = 'bzserptest@gmail.com'
-
 
     def user_get_activation_link(self):
         _bi.sleep(5)
@@ -26,17 +22,17 @@ class EmailOperations:
         delete_mail(self.service, self.dozorro_mail)
 
     def send_successful_test_run_report(self):
+        self.service = gmail_auth()
         subject = f'Test run {time.asctime(time.localtime(time.time()))} was successful!'
         body_message = f'Test run {time.asctime(time.localtime(time.time()))} was successful!'
-        msg = create_message_with_attachment(sender=self.sender, to=self.to, subject=subject, message_text=body_message,
-                                             file='../report.html')
+        msg = create_message_with_attachment(sender='bzserptest@gmail.com', to='bzserptest@gmail.com', subject=subject, message_text=body_message,
+                                             file='report.html')
         send_message(self.service, user_id='me', message=msg)
 
     def send_failed_test_run_report(self):
+        self.service = gmail_auth()
         subject = f'Test run {time.asctime(time.localtime(time.time()))} was failed!'
         body_message = f'Test run {time.asctime(time.localtime(time.time()))} was failed!'
-        msg = create_message_with_attachment(sender=self.sender, to=self.to, subject=subject, message_text=body_message,
-                                             file='../report.html')
+        msg = create_message_with_attachment(sender='bzserptest@gmail.com', to='bzserptest@gmail.com', subject=subject, message_text=body_message,
+                                             file='report.html')
         send_message(self.service, user_id='me', message=msg)
-
-
