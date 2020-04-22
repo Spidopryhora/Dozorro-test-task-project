@@ -95,7 +95,7 @@ def create_message_with_attachment(sender, to, subject, message_text, file):
     message['from'] = sender
     message['subject'] = subject
 
-    msg = MIMEText(message_text)
+    msg = MIMEText(message_text, 'html', 'utf-8')
     message.attach(msg)
 
     content_type, encoding = mimetypes.guess_type(file)
@@ -105,7 +105,7 @@ def create_message_with_attachment(sender, to, subject, message_text, file):
     main_type, sub_type = content_type.split('/', 1)
 
     if main_type == 'text':
-        fp = open(file, 'rb')
+        fp = open(file, 'r')
         msg = MIMEText(fp.read(), _subtype=sub_type)
         fp.close()
 
@@ -152,8 +152,4 @@ def send_message(service, user_id, message):
         print(f'An error occurred: {error}')
 
 
-if __name__ == '__main__':
-    service = gmail_auth()
-    email_msg = create_message_with_attachment('bzserptest@gmail.com', 'bzserptest@gmail.com', 'Test',
-                                               'Hi, this is test results', '../report.html')
-    send_message(service, user_id='me', message=email_msg)
+

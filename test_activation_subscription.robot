@@ -6,13 +6,18 @@ Library  pages/MainPage.py
 Library  pages/UserNotificationSettings.py
 Library  pages/EmailOperations.py
 
+Test Teardown  report activity
+
 *** Keywords ***
-Clean up subscriptions
-    open main page
-    user go to account settings
+clean up subscriptions
     user restore subscription
     user cancel subscription
     user delete activation email
+
+report activity
+    run keyword if test passed  send successful test run report
+    run keyword if test failed  send failed test run report
+
 
 *** Test Cases ***
 User activates email subscription and approve it by activation link
@@ -27,7 +32,7 @@ User activates email subscription and approve it by activation link
     user navigates through the link
     should be notification settings page
     user pause subscription
-    Clean up subscriptions
+    clean up subscriptions
 
 
 
