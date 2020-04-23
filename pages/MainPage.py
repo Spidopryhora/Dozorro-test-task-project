@@ -2,7 +2,6 @@ from pages import Config
 from pages.GenericPage import GenericPage
 from robot.libraries.BuiltIn import BuiltIn
 
-
 _bi = BuiltIn()
 
 
@@ -13,7 +12,8 @@ class MainPageLocators:
     GOOGLE_AUTH = 'css = .btn-google'
     FACEBOOK_AUTH = 'css = .btn-facebook'
     USER_MENU_DROPDOWN = 'css = div.user_login'
-    NOTIFICATION_SETTINGS_LINK = 'css = ul.dropdown-menu li:first-child'
+    NOTIFICATION_LINK = 'css = ul.dropdown-menu li:first-child'
+    NOTIFICATION_SETTINGS_TAB = 'css = li.tender-tabs__item:nth-child(5) a'
 
 
 class GoogleAuthLocators:
@@ -48,4 +48,10 @@ class MainPage(GenericPage):
 
     def user_go_to_account_settings(self):
         self.wait_and_click(MainPageLocators.USER_MENU_DROPDOWN)
-        self.wait_and_click(MainPageLocators.NOTIFICATION_SETTINGS_LINK)
+        self.wait_and_click(MainPageLocators.NOTIFICATION_LINK)
+
+    def user_select_notification_settings_tab(self):
+        self.wait_and_click(MainPageLocators.NOTIFICATION_SETTINGS_TAB)
+
+
+
